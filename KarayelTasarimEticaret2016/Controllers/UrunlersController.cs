@@ -11,7 +11,7 @@ using System.IO;
 
 namespace KarayelTasarimEticaret2016.Controllers
 {
-    //[Authorize(Roles = "Admin")]!
+    [Authorize(Roles = "Admin")]
     public class UrunlersController : Controller
     {
         private Eticaret2016Entities db = new Eticaret2016Entities();
