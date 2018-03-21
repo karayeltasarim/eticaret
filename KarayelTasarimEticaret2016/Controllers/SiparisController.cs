@@ -11,6 +11,7 @@ using Microsoft.AspNet.Identity;
 
 namespace KarayelTasarimEticaret2016.Controllers
 {
+    //sipaeis
     public class SiparisController : Controller
     {
         private Eticaret2016Entities db = new Eticaret2016Entities();
