@@ -1,0 +1,36 @@
+﻿@model IEnumerable<KarayelTasarimEticaret2016.Models.SiparisKalem>
+<div class="jumbotron">
+    <h1>Sipariş Detay Bölümü</h1>
+</div>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Adet)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ToplamTutar)
+        </th>
+    
+        <th>
+            @Html.DisplayNameFor(model => model.Urunler.UrunAdi)
+        </th>
+  
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Adet)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ToplamTutar)
+        </td>
+      
+        <td>
+            @Html.DisplayFor(modelItem => item.Urunler.UrunAdi)
+        </td>
+       
+    </tr>
+}
+
+</table>

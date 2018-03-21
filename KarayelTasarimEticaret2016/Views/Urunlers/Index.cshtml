@@ -1,0 +1,54 @@
+﻿@model IEnumerable<KarayelTasarimEticaret2016.Models.Urunler>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="jumbotron">
+    <h1>Ürün Yönetimi</h1>
+</div>
+
+<p>
+    @Html.ActionLink("Yeni Kayıt", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UrunAdi)
+        </th>
+        <th>
+            Resim
+        </th>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.UrunFiyati)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Kategoriler.KategoriAdi)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UrunAdi)
+        </td>
+        <td>
+            <img src="/Resim/@(item.UrunID).jpg" width="100" />
+        </td>
+     
+        <td>
+            @Html.DisplayFor(modelItem => item.UrunFiyati)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kategoriler.KategoriAdi)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "Edit", new { id=item.UrunID }) |
+            @Html.ActionLink("Detay", "Details", new { id=item.UrunID }) |
+            @Html.ActionLink("Sil", "Delete", new { id=item.UrunID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,36 @@
+﻿@using KarayelTasarimEticaret2016.Models;
+@{
+    ViewBag.Title = "ASP.NET MVC Eticaret Projesi";
+    IEnumerable<Kategoriler> KategoriListesi = ViewBag.KategoriListesi as IEnumerable<Kategoriler>;
+    IEnumerable<Urunler> SonUrunler = ViewBag.SonUrunler as IEnumerable<Urunler>;
+}
+
+<div class="jumbotron">
+    <h1>ASP.NET MVC Eticaret Projesi</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+        <h2>Kategoriler</h2>
+        <ul>
+            @foreach (var item in KategoriListesi)
+            {
+                <li>@Html.ActionLink(item.KategoriAdi, "Kategori", new { id = item.KategoriID })</li>
+            }
+        </ul>
+    </div>
+    <div class="col-md-9">
+        <div class="row">
+            @foreach (var item in SonUrunler)
+            {
+                <div class="col-md-4" style="border:1px solid #808080">
+                    <h5>@item.UrunAdi</h5>
+                    <img src="/Resim/@(item.UrunID).jpg" style="max-width:100%;" />
+                    
+                    <p><a class="btn btn-default" href="@Url.Action("Urun", "Home", new { id= item.UrunID })">Ürün Detay &raquo;</a> <span style="color:red;float:right;font-weight:bold;font-size:16px;">@item.UrunFiyati TL</span></p>
+                </div>
+            }
+           
+        </div>
+    </div>
+</div>

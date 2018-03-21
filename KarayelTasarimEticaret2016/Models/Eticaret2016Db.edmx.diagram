@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a80e94c5238e4f5089142a6ef1f45208" Name="Diagram1" ZoomLevel="72" >
+        <EntityTypeShape EntityType="Eticaret2016Model.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="Eticaret2016Model.AspNetRole" Width="1.5" PointX="0.875" PointY="2.125" />
+        <EntityTypeShape EntityType="Eticaret2016Model.AspNetUserClaim" Width="1.5" PointX="3" PointY="6.625" />
+        <EntityTypeShape EntityType="Eticaret2016Model.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="1.375" />
+        <EntityTypeShape EntityType="Eticaret2016Model.AspNetUser" Width="1.5" PointX="3" PointY="1.375" />
+        <AssociationConnector Association="Eticaret2016Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="Eticaret2016Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="Eticaret2016Model.AspNetUserRoles" />
+        <EntityTypeShape EntityType="Eticaret2016Model.Kategoriler" Width="1.5" PointX="12.625" PointY="9" />
+        <EntityTypeShape EntityType="Eticaret2016Model.Sepet" Width="1.5" PointX="9.625" PointY="5.125" />
+        <EntityTypeShape EntityType="Eticaret2016Model.Sipari" Width="1.5" PointX="9.625" PointY="1.75" />
+        <EntityTypeShape EntityType="Eticaret2016Model.Urunler" Width="1.5" PointX="12.625" PointY="4.5" />
+        <AssociationConnector Association="Eticaret2016Model.FK_Sepet_AspNetUsers" />
+        <AssociationConnector Association="Eticaret2016Model.FK_Siparis_AspNetUsers" />
+        <AssociationConnector Association="Eticaret2016Model.FK_Urunler_Kategoriler" />
+        <AssociationConnector Association="Eticaret2016Model.FK_Sepet_Urunler" />
+        <EntityTypeShape EntityType="Eticaret2016Model.SiparisKalem" Width="1.5" PointX="16.375" PointY="5.125" />
+        <AssociationConnector Association="Eticaret2016Model.FK_SiparisKalem_Siparis" />
+        <AssociationConnector Association="Eticaret2016Model.FK_SiparisKalem_Urunler" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

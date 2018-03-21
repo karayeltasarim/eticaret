@@ -1,0 +1,39 @@
+﻿@model KarayelTasarimEticaret2016.Models.Urunler
+@using KarayelTasarimEticaret2016.Models;
+
+@{
+    ViewBag.Title = Model.UrunAdi;
+
+    IEnumerable<Kategoriler> KategoriListesi = ViewBag.KategoriListesi as IEnumerable<Kategoriler>;
+}
+
+<div class="jumbotron">
+    <h3>@Model.UrunAdi</h3>
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+        <h2>Kategoriler</h2>
+        <ul>
+            @foreach (var item in KategoriListesi)
+            {
+                <li>@Html.ActionLink(item.KategoriAdi, "Kategori", new { id = item.KategoriID })</li>
+            }
+        </ul>
+    </div>
+    <div class="col-md-9">
+        <h1><b><i>ÜRÜN ADI</i></b> </h1>
+        <h5>@Model.UrunAdi</h5>
+        <div class="row">
+            <div class="col-md-6"><img src="/Resim/@(Model.UrunID).jpg" style="max-width:100%;" /></div>
+            <div class="col-md-6">
+               Ürün Fiyatı : <span style="color:red;font-weight:bold;font-size:16px;">@Model.UrunFiyati TL</span><br/>
+                <form action="/Sepets/SepeteEkle"><input type="hidden" name="id" id="id" value="@Model.UrunID" style="width:50px;" />
+                    <input type="number" name="adet" id="adet" value="1" style="width:50px;" /> <input type="submit" id="gonder" value="Sepete Ekle" />
+                </form>
+            </div>
+        </div>
+        <h1><b><i>ÜRÜN AÇIKLAMASI</i></b> </h1>
+        <p>@MvcHtmlString.Create(Model.UrunAciklamasi)</p>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+﻿@model IEnumerable<KarayelTasarimEticaret2016.Models.Sipari>
+
+<div class="jumbotron">
+    <h1>Sipariş Listesi</h1>
+</div>
+<table class="table">
+    <tr>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.Ad)
+      
+            @Html.DisplayNameFor(model => model.Soyad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Adres)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TCKimlikNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tarih)
+        </th>
+        <th>
+           
+            Ürün Adet
+        </th>
+        <th>Toplam Tutar</th>
+        <th> Sipariş detay</th>
+      
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Ad)
+     
+            @Html.DisplayFor(modelItem => item.Soyad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Adres)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telefon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TCKimlikNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tarih)
+        </td>
+        <td>
+            @item.SiparisKalems.Sum(a=>a.Adet)
+        </td>
+        <td>@item.SiparisKalems.Sum(a => a.ToplamTutar)</td>
+    
+       <td>@Html.ActionLink("Detay","SiparisDetay", new { siparisID= item.SiparisID})</td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,141 @@
+﻿@model KarayelTasarimEticaret2016.Models.Sipari
+
+@{
+    ViewBag.Title = "Sipariş Tamamlama Bölümü";
+}
+
+<div class="jumbotron">
+    <h1>Sipariş Tamamlama Bölümü</h1>
+</div>
+
+
+<form action="@ViewBag.PostURL" class="form-contact validate-form no-ajax" method="post">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-horizontal">
+                <h4>TESLİMAT BİLGİLERİ</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Ad, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Ad, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Ad, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Soyad, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Soyad, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Soyad, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Adres, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Adres, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Adres, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Telefon, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Telefon, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Telefon, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.TCKimlikNo, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.TCKimlikNo, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.TCKimlikNo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-horizontal">
+                <h4>KART BİLGİLERİ</h4>
+                <hr />
+                <div class="form-group">
+                    <label class="control-label col-md-6" for="kartisimsoysisim">ADI SOYADI</label>
+                    <div class="col-md-6">
+                        <input autocomplete="off" name="kartisimsoysisim" type="text" maxlength="255" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-6" for="Ad">KREDİ KARTI NUMARASI</label>
+                    <div class="col-md-6">
+                        <input autocomplete="off" id="contact-email" name="pan" type="text" value="5571135571135575" />
+                        <input type="hidden" name="clientid" value="@ViewBag.ClientId">
+                        <input type="hidden" name="oid" value="@ViewBag.Oid">
+                        <input type="hidden" name="okUrl" value="@ViewBag.okUrl">
+                        <input type="hidden" name="failUrl" value="@ViewBag.failUrl">
+                        <input type="hidden" name="islemtipi" value="@ViewBag.TransActionType">
+                        <input type="hidden" name="rnd" value="@ViewBag.RDN">
+                        <input type="hidden" id="hash" name="hash" value="@ViewBag.Hash">
+                        <input type="hidden" name="storetype" value="@ViewBag.StoreType">
+                        <input type="hidden" name="refreshtime" value="10">
+                        <input type="hidden" name="lang" value="@ViewBag.Lang">
+                        <input type="hidden" name="currency" value="949">
+                        <input type="hidden" name="amount" value="@ViewBag.Amount" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-6" for="kartisimsoysisim">SON KULLANMA TARİHİ</label>
+                    <div class="col-md-6">
+                        <select class="sec" style="float:left;width:75px;" name="Ecom_Payment_Card_ExpDate_Month">
+
+                            <option value="01">01</option>
+                            <option value="02">02</option>
+                            <option value="03">03</option>
+                            <option value="04">04</option>
+                            <option value="05">05</option>
+                            <option value="06">06</option>
+                            <option value="07">07</option>
+                            <option value="08">08</option>
+                            <option value="09">09</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12" selected="selected">12</option>
+
+                        </select>
+                        <select class="sec" style="float:left;width:75px;" name="Ecom_Payment_Card_ExpDate_Year">
+                            <option value="17">17</option>
+                            <option value="18" selected="selected">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+
+                        </select>
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-6" for="CVC">CVC</label>
+                    <div class="col-md-6">
+                        <input autocomplete="off" id="contact-phone" name="cvCode" type="text" value="000" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-6">
+                        <input type="submit" value="Ödeme Tamamla" class="btn btn-default" />
+                        <p>
+                            Kart 3D Secure Şifresi : a
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</form>
